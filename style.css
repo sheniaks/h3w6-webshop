@@ -1,3 +1,7 @@
+header {
+    display: flex;
+    justify-content: space-around;
+}
 main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -9,3 +13,4 @@ p.hidden-p {
   display: block;
   text-overflow: ellipsis;
 }
+
