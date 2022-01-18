@@ -10,7 +10,7 @@ export default class ViewCards {
                     <img src="${image}" class="card-img-top" alt="${name}" referrerpolicy="no-referrer">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
-                        <p class="card-text">Price: ${price} ₴</p>
+                        <p class="card-text">Price: ${price} UAH</p>
                         <a href="#" class="btn btn-primary">Buy now</a>
                     </div>
                 </div>`
