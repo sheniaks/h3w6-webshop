@@ -8,7 +8,7 @@ export default class ViewCards {
     );
   }
 
-  getGamesHTML({ name, image, price, genre, platforms, amount, release }) {
+  getGamesHTML({ name, image, price, aprice, genre, platforms, amount, release }) {
     return `<div class="card m-2 border border-secondary rounded-3" style="width: 18rem">
                 <img src="${image}" referrerpolicy="no-referrer" class="card-img-top rounded-3" alt="Logo for ${name}" />
                 <div class="card-body">
@@ -16,7 +16,7 @@ export default class ViewCards {
                     <p class="card-text">${release} - ${genre}</p>
                     <p class="card-text hidden-p">${platforms}</p>
                     <p class="card-text">In stock : ${amount}</p>
-                    <p class="card-text fw-bold"">Price : ${price} UAH</p>
+                    <p class="card-text fw-bold"">New price: ${aprice} UAH (<s>${price} UAH</s>)</p>
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-secondary">Game description</button>

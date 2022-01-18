@@ -3,8 +3,9 @@ header {
     justify-content: space-around;
 }
 main {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 p.hidden-p {
