@@ -17,8 +17,9 @@ export default class ViewSort {
 
   renderButtons() {
     const buttonsStr = `
-        <button type="button" class="btn btn-info btn--sort" data-btn="sort_up">Sort up</button>
-        <button type="button" class="btn btn-info btn--sort" data-btn="sort_dn">Sort down</button>`;
+        <button type="button" class="btn btn-info btn--sort" data-btn="sort_up">Sort price up</button>
+        <button type="button" class="btn btn-info btn--sort" data-btn="sort_dn">Sort price down</button>
+        `;
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", buttonsStr);
   }
 }

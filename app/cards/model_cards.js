@@ -5,10 +5,10 @@ export default class ModelCards {
   getData() {
     return fetch(this.URL_GAMES)
       .then((resp) => resp.text())
-      .then(d => this.parseSheet(d));
+      .then(this.parseSheet);
   }
 
-  parseSheet(tsv) {
+  parseSheet = tsv => {
     const d = tsv.split("\r\n").map((line) => line.split("\t"));
     const keys = d.shift();
     const data = d.map((arr) =>
