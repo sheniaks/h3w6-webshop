@@ -5,7 +5,7 @@ export default class ModelCards {
   getData() {
     return fetch(this.URL_GAMES)
       .then((resp) => resp.text())
-      .then(this.parseSheet);
+      .then(d => this.parseSheet(d));
   }
 
   parseSheet(tsv) {
@@ -17,6 +17,14 @@ export default class ModelCards {
         return obj;
       }, {})
     );
+    this.data = data;
     return data;
+  }
+
+  getSortData(sortType){
+    const sortVoc = { sort_up : 1, sort_dn : -1};
+    const sortMulti = sortVoc[sortType];
+    this.data.sort((a,b) =>  (a.price - b.price)*sortMulti);
+    return this.data;
   }
 }

@@ -11,4 +11,9 @@ export default class ComtrollerCards {
   init() {
     this.model.getData().then((d) => this.view.renderGames(d));
   }
+
+  handeSort(sortType){
+    const data = this.model.getSortData(sortType);
+    this.view.renderGames(data);    
+  }
 }

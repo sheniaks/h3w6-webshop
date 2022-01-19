@@ -1,5 +1,8 @@
 import ComtrollerCards from "./cards/controller_cards.js";
+import ControllerSort from "./sort/controller_sort.js";
 const controllerCards = new ComtrollerCards();
+const controllerSort = new ControllerSort(controllerCards.handeSort.bind(controllerCards));
+
 
 //const URL_GAMES = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRX-T20ZlEv-pJVqwWgmTC89368BK6XhYIfKgqeTewfNLpKeWgVxcw0azcxTIwyKNLtuF-YjfX61bE-/pub?output=tsv'; //M
 //const BODY_MAIN = document.querySelector('main'); //V

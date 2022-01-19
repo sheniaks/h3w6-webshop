@@ -2,13 +2,23 @@ export default class ViewCards {
   BODY_MAIN = document.querySelector("main");
 
   renderGames(games) {
+    this.BODY_MAIN.innerHTML = '';
     this.BODY_MAIN.insertAdjacentHTML(
       "beforeend",
       games.map(this.getGamesHTML).join("")
     );
   }
 
-  getGamesHTML({ name, image, price, aprice, genre, platforms, amount, release }) {
+  getGamesHTML({
+    name,
+    image,
+    price,
+    aprice,
+    genre,
+    platforms,
+    amount,
+    release,
+  }) {
     return `<div class="card m-2 border border-secondary rounded-3" style="width: 18rem">
                 <img src="${image}" referrerpolicy="no-referrer" class="card-img-top rounded-3" alt="Logo for ${name}" />
                 <div class="card-body">
