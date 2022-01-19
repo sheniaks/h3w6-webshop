@@ -12,4 +12,9 @@ export default class ControllerCards {
     init() {
         this.model.getData().then(data => this.view.renderCards(data));
     }   
+
+    handleSort(sortType) {
+        const data = this.model.getSortData(sortType);
+        this.view.renderCards(data);
+    }
 }

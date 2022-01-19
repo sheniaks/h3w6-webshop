@@ -1,6 +1,8 @@
 import ControllerCards from "./components/cards/controller_cards.js";
+import ControllerSort from "./sort/controller_sort.js";
 
-const controllerCards = new ControllerCards;
+const controllerCards = new ControllerCards();
+const controllerSort = new ControllerSort(controllerCards.handleSort.bind(controllerCards));
 
 // const URL_SHEET = 'https://docs.google.com/spreadsheets/d/1Wc-F9Qa3a2giE4cVbbJgTaTQAdaHVX7kdCujcG0_ppY/pub?output=tsv';
 // const BODY_MAIN = document.body.querySelector('main');

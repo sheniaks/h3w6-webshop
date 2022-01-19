@@ -2,12 +2,16 @@
 .navbar-brand img {
     width: 5rem;
 }
+
+.sort--btns {
+    margin: 6.5rem 0 0 1rem;
+}
 /* ---------------- */
 
 
 /*----- MAIN -----*/
 main {
-    margin-top: 6rem;
+    margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

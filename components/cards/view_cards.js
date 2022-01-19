@@ -2,6 +2,7 @@ export default class ViewCards {
     BODY_MAIN = document.body.querySelector('main');
 
     renderCards(cards) {
+        this.BODY_MAIN.innerHTML = '';
         this.BODY_MAIN.insertAdjacentHTML('beforeend', cards.map(this.getCardHTML).join(''));
     };
     
