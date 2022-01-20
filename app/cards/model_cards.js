@@ -18,6 +18,7 @@ export default class ModelCards {
       }, {})
     );
     this.data = data;
+    console.log(data);
     return data;
   }
 
@@ -30,10 +31,19 @@ export default class ModelCards {
       this.data.sort((a,b) =>  (a.release - b.release)*sortMulti);}
     if (sortType === 'sort_age_up' || sortType ===  'sort_age_dn'){
       this.data.sort((a,b) =>  (a.age_rating - b.age_rating)*sortMulti);}
+    if (sortType === 'sort_a_z'){
+      this.data.sort((a,b) => a.name.localeCompare(b.name));}  
+    if (sortType === 'sort_z_a'){
+        this.data.sort((a,b) => b.name.localeCompare(a.name));}
     return this.data;
   }
 
   getFilterData(filterType){
-    
+    console.log(filterType);
+    return filterType === "all"? this.data: this.data.filter(card => card.platforms.includes(filterType));
+    // return this.data;
   }
+
+
+  
 }

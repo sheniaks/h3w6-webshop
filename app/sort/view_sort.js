@@ -3,17 +3,19 @@ export default class ViewSort {
   BTN_SORT_SELECTOR = ".btn--sort";
   FORM_SELECT = ".form-select"
 
-  constructor(handleClickFormSelect,handleClickBtnSort) {
+  constructor(handleClickFormSelect) {
     // this.handleClickBtnSort = handleClickBtnSort;
     this.handleClickFormSelect = handleClickFormSelect;
   }
+
   init() {
     // this.renderButtons();
     // this.addListeners(this.handleClickBtnSort);
     this.renderSelectForm();
     this.addListener(this.handleClickFormSelect);
   }
-    addListener(listener){
+
+  addListener(listener){
       document.querySelector(this.FORM_SELECT).addEventListener("change", listener);
     }
 
@@ -38,12 +40,15 @@ export default class ViewSort {
   renderSelectForm() {
     const selectForm =`<select class="form-select" aria-label="Sort by select form">
     <option selected>Sort by:</option>
+    <option value="sort_a_z">Name A-Z</option>
+    <option value="sort_z_a">Name Z-A</option>
     <option value="sort_price_up">Price Lowest</option>
     <option value="sort_price_dn">Price Highest</option>
-    <option value="sort_release_up">Release Old</option>
-    <option value="sort_release_dn">Release New</option>
     <option value="sort_age_up">Age Rating Lowest</option>
-    <option value="sort_age_dn">Age rating Highest</option>
+    <option value="sort_age_dn">Age Rating Highest</option>
+    <option value="sort_release_up">Release Date Oldest</option>
+    <option value="sort_release_dn">Release Date Newest</option>
+
   </select>`;
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", selectForm);
   }
