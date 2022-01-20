@@ -3,5 +3,5 @@ import ControllerLikometr from "./likometr/controller_likometr.js";
 import ControllerSort from "./sort/controller_sort.js";
 const controllerCards = new ComtrollerCards();
 const controllerSort = new ControllerSort(controllerCards.handeSort);
-const controllerLikometr = new ControllerLikometr();
+// const controllerLikometr = new ControllerLikometr();
 

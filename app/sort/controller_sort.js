@@ -13,6 +13,6 @@ export default class ControllerSort{
     handleClickBtnSort = ev => {
         const sortType = ev.srcElement.dataset.btn;
         this.pub.notify('ON_CLICK_SORT', sortType)
-        this.handeSortByControllerCards(sortType);
+       // this.handeSortByControllerCards(sortType);
     }
 }
