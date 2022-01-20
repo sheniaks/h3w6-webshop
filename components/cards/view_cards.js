@@ -10,11 +10,15 @@ export default class ViewCards {
         this.BODY_MAIN.insertAdjacentHTML('beforeend', cards.map(this.getCardHTML).join(''));
     };
     
-    getCardHTML({id, name, image, price}) {
+    getCardHTML({id, name, image, price, aprice, genre, platforms, amount, release, description, age_rating }) {
         return  `<div id="${id}" class="card m-2 game--id" style="width: 18rem;">
                     <img src="${image}" class="card-img-top" alt="${name}" referrerpolicy="no-referrer">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
+                        <p class="card-text">${release} - ${genre}</p>
+                        <p class="card-text hidden-p">${platforms}</p>
+                        <p class="card-text">Age rating: ${age_rating}+ years.</p>
+                        <p class="card-text">In stock: ${amount}</p>
                         <p class="card-text">Price: ${price} UAH</p>
                         <div class="for--btns--card">
                             <div>
