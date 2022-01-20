@@ -36,15 +36,15 @@ export default class ViewSort {
   // }
 
   renderSelectForm() {
-    const selectForm =`<select class="form-select" aria-label="Default select example">
+    const selectForm =`<select class="form-select" aria-label="Sort by select form">
     <option selected>Sort by:</option>
-    <option value="sort_price_up">Price Up</option>
-    <option value="sort_price_dn">Price Down</option>
+    <option value="sort_price_up">Price Lowest</option>
+    <option value="sort_price_dn">Price Highest</option>
     <option value="sort_release_up">Release Old</option>
     <option value="sort_release_dn">Release New</option>
     <option value="sort_age_up">Age Rating Lowest</option>
     <option value="sort_age_dn">Age rating Highest</option>
-  </select>`
+  </select>`;
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", selectForm);
   }
 

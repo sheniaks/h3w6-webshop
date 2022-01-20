@@ -20,6 +20,11 @@ export default class ComtrollerCards {
     this.view.renderGames(data);    
   }
 
+  handleFilter = filterType => {
+    
+  }
+
+
   handleClickLike = ev => {
     const id = this.view.getCardId(ev);
     this.pub.notify('LIKE', id);

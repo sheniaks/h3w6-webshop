@@ -32,4 +32,8 @@ export default class ModelCards {
       this.data.sort((a,b) =>  (a.age_rating - b.age_rating)*sortMulti);}
     return this.data;
   }
+
+  getFilterData(filterType){
+    
+  }
 }
