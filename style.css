@@ -1,0 +1,17 @@
+header {
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+p.hidden-p {
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+}
+
