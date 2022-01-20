@@ -17,6 +17,21 @@ main {
     justify-content: space-between;
     background-color: rgba(0, 0, 0, .1);;
 }
+
+.for--btns--card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-heart {
+    color: crimson;
+    font-size: 1.5rem;
+}
+
+.count--likes {
+    font-size: 1.2rem;
+    color:dimgray;
+}
 /* ---------------- */
 
 

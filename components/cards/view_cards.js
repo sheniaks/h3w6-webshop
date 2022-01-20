@@ -1,19 +1,36 @@
 export default class ViewCards {
     BODY_MAIN = document.body.querySelector('main');
 
+    constructor(handleClickLike) {
+        this.BODY_MAIN.addEventListener('click', handleClickLike);
+    }
+
     renderCards(cards) {
         this.BODY_MAIN.innerHTML = '';
         this.BODY_MAIN.insertAdjacentHTML('beforeend', cards.map(this.getCardHTML).join(''));
     };
     
     getCardHTML({id, name, image, price}) {
-        return  `<div id="${id}" class="card m-2" style="width: 18rem;">
+        return  `<div id="${id}" class="card m-2 game--id" style="width: 18rem;">
                     <img src="${image}" class="card-img-top" alt="${name}" referrerpolicy="no-referrer">
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
                         <p class="card-text">Price: ${price} UAH</p>
-                        <a href="#" class="btn btn-primary">Buy now</a>
+                        <div class="for--btns--card">
+                            <div>
+                                <a href="#" class="btn btn-primary">Buy now</a>
+                            </div>
+                            <div>
+                                <button class="btn btn-hart">
+                                    <i class='fa fa-heart'></i>
+                                </button>
+                                <span class="count--likes">13</span>
+                            </div>
+                        </div>
                     </div>
                 </div>`
     };
+
+    //TODO: Move to controller?
+    getCardId = e => e.target.closest('.game--id')?.dataset.id;
 }
