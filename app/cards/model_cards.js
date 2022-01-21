@@ -41,16 +41,26 @@ export default class ModelCards {
     return this.filteredData;
   }
 
-  getFilterData(filterType){
-    // console.log(filterType);
-    // return filterType === "all"? this.data: this.data.filter(card => card.platforms.includes(filterType));
-    if (filterType === "all") return this.data;
+  getFilterSelectData(filterSelectType, filterCheckboxType){
+    if (filterSelectType === "all" ) return this.data;
       else {
-        this.filteredData = this.data.filter(card => card.platforms.includes(filterType));
+        this.filteredData = this.data.filter(card => card.platforms.includes(filterSelectType));
         return this.filteredData;
-      }
+      }  
   }
 
+  getFilterCheckboxData(filterCheckboxType){
+    if (this.filteredData === undefined){
+      this.filteredData = this.data;}
+    if (filterCheckboxType.includes("all") ) return this.data;
+      else {
+        this.filteredData = this.filteredData.filter(card => card.genre.includes(filterCheckboxType));
+        return this.filteredData;
+      }  
+  }
+  
+
+  
 
   
 }

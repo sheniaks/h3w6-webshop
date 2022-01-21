@@ -9,15 +9,21 @@ export default class ComtrollerCards {
     this.init();
     this.pub = new Publisher();
     this.pub.subscribe('ON_CLICK_SORT', this.handeSort);
-    this.pub.subscribe('ON_CLICK_FILTER', this.handleFilter)
+    this.pub.subscribe('ON_CLICK_FILTER_SELECT', this.handleFilterSelect);
+    this.pub.subscribe('ON_CLICK_FILTER_CHECKBOX', this.handleFilterCheckbox);
   }
 
   init() {
     this.model.getData().then((d) => this.view.renderGames(d));
   }
 
-  handleFilter = filterType => {
-    const data = this.model.getFilterData(filterType);
+  handleFilterCheckbox = filterCheckboxType => {
+    const data = this.model.getFilterCheckboxData(filterCheckboxType);
+    this.view.renderGames(data);   
+  }
+
+  handleFilterSelect = filterSelectType => {
+    const data = this.model.getFilterSelectData(filterSelectType);
     this.view.renderGames(data);   
   }
   handeSort= sortType => {
