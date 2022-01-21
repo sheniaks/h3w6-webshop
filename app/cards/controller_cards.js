@@ -9,6 +9,7 @@ export default class ComtrollerCards {
     this.init();
     this.pub = new Publisher();
     this.pub.subscribe('ON_CLICK_SORT', this.handeSort);
+    this.pub.subscribe('ON_CLICK_FILTER', this.handleFilter)
   }
 
   init() {
@@ -21,7 +22,8 @@ export default class ComtrollerCards {
   }
 
   handleFilter = filterType => {
-    
+    const data = this.model.getFilterData(filterType);
+    this.view.renderGames(data);   
   }
 
 

@@ -2,12 +2,11 @@ import Publisher from "../publisher.js";
 import ViewSort from "./view_sort.js";
 
 export default class ControllerSort{
-    constructor(handeSortByControllerCards){
-        this.view = new ViewSort(this.handleClickFormSelect, this.handleClickBtnSort);
-        this.handeSortByControllerCards = handeSortByControllerCards;
-    
-        this.view.init();
+    constructor(){
         this.pub = new Publisher();
+        this.view = new ViewSort(this.handleClickFormSelect);
+        this.view.init();
+        
     }
 
     // handleClickBtnSort = ev => {
