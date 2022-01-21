@@ -16,20 +16,19 @@ export default class ComtrollerCards {
     this.model.getData().then((d) => this.view.renderGames(d));
   }
 
+  handleFilter = filterType => {
+    const data = this.model.getFilterData(filterType);
+    this.view.renderGames(data);   
+  }
   handeSort= sortType => {
     const data = this.model.getSortData(sortType);
     this.view.renderGames(data);    
   }
 
-  handleFilter = filterType => {
-    const data = this.model.getFilterData(filterType);
-    this.view.renderGames(data);   
-  }
 
-
-  handleClickLike = ev => {
-    const id = this.view.getCardId(ev);
-    this.pub.notify('LIKE', id);
-  }
+  // handleClickLike = ev => {
+  //   const id = this.view.getCardId(ev);
+  //   this.pub.notify('LIKE', id);
+  // }
 }
 
