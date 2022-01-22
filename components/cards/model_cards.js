@@ -1,6 +1,10 @@
 export default class ModelCards {
     URL_SHEET = 'https://docs.google.com/spreadsheets/d/1Wc-F9Qa3a2giE4cVbbJgTaTQAdaHVX7kdCujcG0_ppY/pub?output=tsv';
 
+    constructor() {
+        this.data = [];
+    }
+
     getData() {
         return fetch(this.URL_SHEET)
                 .then(response => response.text())
@@ -30,5 +34,13 @@ export default class ModelCards {
         if (sortType === 'sort_age_up' || sortType === 'sort_age_dn'){
             this.data.sort((a,b) =>  (a.age_rating - b.age_rating)*sortMulti);}
         return this.data;
+    }
+
+    getObjForModalById(event) {
+        // debugger;
+        const card = event.target.closest(".card");
+        const id = card.id;
+        const objectForModal = this.data.find((obj) => obj.id === id);
+        return objectForModal;
     }
 }

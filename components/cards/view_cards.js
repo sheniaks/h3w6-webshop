@@ -1,13 +1,16 @@
 export default class ViewCards {
     BODY_MAIN = document.body.querySelector('main');
+    MAIN_WRAPPER = document.body.querySelector('.wrapper');
 
-    constructor(handleClickLike) {
+    constructor(handleClickLike, handleOpenModal) {
         this.BODY_MAIN.addEventListener('click', handleClickLike);
+        this.BODY_MAIN.addEventListener('click', handleOpenModal);
+        // document.querySelector('.row').addEventListener('click', handleOpenModal);
     }
 
     renderCards(cards) {
-        this.BODY_MAIN.innerHTML = '';
-        this.BODY_MAIN.insertAdjacentHTML('beforeend', cards.map(this.getCardHTML).join(''));
+        this.MAIN_WRAPPER.innerHTML = '';
+        this.MAIN_WRAPPER.insertAdjacentHTML('beforeend', cards.map(this.getCardHTML).join(''));
     };
     
     getCardHTML({id, name, image, price, aprice, genre, platforms, amount, release, description, age_rating }) {
