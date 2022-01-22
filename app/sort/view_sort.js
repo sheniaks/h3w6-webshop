@@ -1,7 +1,7 @@
 export default class ViewSort {
   BODY_HEADER = document.querySelector("header");
   BTN_SORT_SELECTOR = ".btn--sort";
-  FORM_SELECT = ".form-select"
+  FORM_SELECT = ".form-select";
 
   constructor(handleClickFormSelect) {
     // this.handleClickBtnSort = handleClickBtnSort;
@@ -48,7 +48,6 @@ export default class ViewSort {
     <option value="sort_age_dn">Age Rating Highest</option>
     <option value="sort_release_up">Release Date Oldest</option>
     <option value="sort_release_dn">Release Date Newest</option>
-
   </select>`;
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", selectForm);
   }

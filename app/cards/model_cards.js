@@ -70,7 +70,15 @@ export default class ModelCards {
       }  
   }
   
-
+  getSearchData(searchVal){
+    if (this.filteredData === undefined || this.filteredData.length === 0 ){
+      this.filteredData = this.data;}
+      if (!searchVal || searchVal === "") {
+        this.filteredData = this.data;
+        return this.filteredData;}
+    this.filteredData = this.filteredData.filter(card => card.name.toLowerCase().includes(searchVal));
+    return this.filteredData;
+  }
   
 
   
