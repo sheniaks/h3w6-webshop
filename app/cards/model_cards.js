@@ -18,7 +18,7 @@ export default class ModelCards {
       }, {})
     );
     this.data = data;
-    console.log(data);
+    //console.log(data);
     return data;
   }
 
@@ -26,7 +26,7 @@ export default class ModelCards {
     const sortVoc = { sort_price_up : 1, sort_price_dn : -1, sort_release_up : 1, sort_release_dn : -1, sort_age_up : 1, sort_age_dn: -1};
     const sortMulti = sortVoc[sortType];
     //console.log(this.filteredData);
-    if (this.filteredData === undefined){
+    if (this.filteredData === undefined || this.filteredData.length === 0){
       this.filteredData = this.data;}
     if (sortType === 'sort_price_up' || sortType ===  'sort_price_dn'){
       this.filteredData.sort((a,b) =>  (a.price - b.price)*sortMulti);}
@@ -41,20 +41,31 @@ export default class ModelCards {
     return this.filteredData;
   }
 
-  getFilterSelectData(filterSelectType, filterCheckboxType){
-    if (filterSelectType === "all" ) return this.data;
+  getFilterSelectData(filterSelectType){
+    if (this.filteredData === undefined || this.filteredData.length === 0){
+      this.filteredData = this.data;}
+    if (filterSelectType === "all" || filterSelectType === undefined) {
+    this.filteredData = this.data;
+    return this.filteredData;}
       else {
-        this.filteredData = this.data.filter(card => card.platforms.includes(filterSelectType));
+        this.filteredData = this.filteredData.filter(card => card.platforms.includes(filterSelectType));
+        // console.log(this.filteredData);
+        // console.log(this.filteredData.length);
+        // console.log(filterSelectType);
         return this.filteredData;
       }  
   }
 
   getFilterCheckboxData(filterCheckboxType){
-    if (this.filteredData === undefined){
+    
+    if (this.filteredData === undefined || this.filteredData.length === 0 ){
       this.filteredData = this.data;}
-    if (filterCheckboxType.includes("all") ) return this.data;
+    if (filterCheckboxType.includes("all") || filterCheckboxType === "") {
+      this.filteredData = this.data;
+      return this.filteredData;}
       else {
         this.filteredData = this.filteredData.filter(card => card.genre.includes(filterCheckboxType));
+        // console.log(this.filteredData);
         return this.filteredData;
       }  
   }

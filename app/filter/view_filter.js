@@ -24,7 +24,8 @@ export default class ViewFilter {
 //   }
 
 addListeners(listener2) {
-    document.querySelector('.btn').addEventListener("click", listener2 );   
+    document.querySelector('.btn').addEventListener("click", listener2 ); 
+    console.log(listener2);  
       }
 
 
@@ -135,7 +136,8 @@ addListeners(listener2) {
         </div>
         <button class="btn btn-primary filter-genres" >FILTER BY GENRE</button>`;
 
-    this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormPlatform);
+    
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormGenre);
+    this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormPlatform);
   }
 }

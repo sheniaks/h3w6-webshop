@@ -20,7 +20,7 @@ export default class ControllerFilter{
             checkboxes.forEach((checkbox) => {
                 values.push(checkbox.value);
             });
-            console.log(values);
+            // console.log(values);
         const filterCheckboxType = values.join(' ');
         console.log(filterCheckboxType)
         this.pub.notify('ON_CLICK_FILTER_CHECKBOX', filterCheckboxType)
