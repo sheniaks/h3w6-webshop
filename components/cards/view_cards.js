@@ -5,7 +5,6 @@ export default class ViewCards {
     constructor(handleClickLike, handleOpenModal) {
         this.BODY_MAIN.addEventListener('click', handleClickLike);
         this.BODY_MAIN.addEventListener('click', handleOpenModal);
-        // document.querySelector('.row').addEventListener('click', handleOpenModal);
     }
 
     renderCards(cards) {
@@ -17,23 +16,16 @@ export default class ViewCards {
         return  `<div id="${id}" class="card m-2 game--id" style="width: 18rem;">
                     <img src="${image}" class="card-img-top" alt="${name}" referrerpolicy="no-referrer">
                     <div class="card-body">
-                        <h5 class="card-title">${name}</h5>
+                        <h5 class="card-title fw-bold"">${name}</h5>
                         <p class="card-text">${release} - ${genre}</p>
                         <p class="card-text hidden-p">${platforms}</p>
-                        <p class="card-text">Age rating: ${age_rating}+ years.</p>
-                        <p class="card-text">In stock: ${amount}</p>
-                        <p class="card-text">Price: ${price} UAH</p>
-                        <div class="for--btns--card">
-                            <div>
-                                <a href="#" class="btn btn-primary">Buy now</a>
-                            </div>
-                            <div>
-                                <button class="btn btn-hart">
-                                    <i class='fa fa-heart'></i>
-                                </button>
-                                <span class="count--likes">13</span>
-                            </div>
-                        </div>
+                        <p class="card-text">Age rating : ${age_rating}+ years.</p>
+                        <p class="card-text">In stock : ${amount}</p>
+                        <p class="card-text fw-bold"">New price: ${aprice} UAH (<s>${price} UAH</s>)</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-secondary">Game description</button>
+                        <button type="button" class="btn btn-primary">Buy now</button>
                     </div>
                 </div>`
     };
