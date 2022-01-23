@@ -15,4 +15,16 @@ Xbox One
 Xbox Series X/S
 
 action
+adventure
+battle royale
+card
+fantasy
+MMORRPG
+racing
+sandbox
+shooter
+simulator
+sports
+strategy
 survival
+RPG
