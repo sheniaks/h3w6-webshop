@@ -76,8 +76,8 @@ export default class ModelCards {
       if (!searchVal || searchVal === "") {
         this.filteredData = this.data;
         return this.filteredData;}
-    this.filteredData = this.filteredData.filter(card => card.name.toLowerCase().includes(searchVal));
-    return this.filteredData;
+    const searchResult = this.filteredData.filter(card => card.name.toLowerCase().includes(searchVal));
+    return searchResult;
   }
   
 
