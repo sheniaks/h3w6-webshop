@@ -12,7 +12,7 @@ export default class ViewSearch{
     
     addListener(listener){
         document.querySelector(this.SEARCH_FORM).addEventListener("input", listener);
-        console.log(listener);
+        //console.log(listener);
     }
 
     renderSearchForm() {

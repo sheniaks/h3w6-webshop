@@ -1,5 +1,6 @@
 export default class ViewFilter {
   BODY_HEADER = document.querySelector("header");
+  BODY_ASIDE = document.querySelector("aside");
   FORM_CHECK = '.form-check-input';
   FORM_SELECT = ".form-select";
   constructor(handleClickFilterSelect, handleClickFilterCheckbox) {
@@ -25,7 +26,7 @@ export default class ViewFilter {
 
 addListeners(listener2) {
     document.querySelector('.btn').addEventListener("click", listener2 ); 
-    console.log(listener2);  
+    //console.log(listener2);  
       }
 
 
@@ -137,7 +138,7 @@ addListeners(listener2) {
         <button class="btn btn-primary filter-genres" >FILTER BY GENRE</button>`;
 
     
-    this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormGenre);
+    this.BODY_ASIDE.insertAdjacentHTML("afterbegin", filterFormGenre);
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormPlatform);
   }
 }

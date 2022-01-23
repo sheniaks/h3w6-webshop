@@ -10,7 +10,7 @@ export default class ControllerSearch{
 
     handleChangeSearch = ev => {
         const searchVal = ev.target.value;
-        console.log(searchVal);
+        //console.log(searchVal);
         this.pub.notify('ON_CHANGE_SEARCH', searchVal)
     }
 }
