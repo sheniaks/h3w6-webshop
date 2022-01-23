@@ -8,25 +8,25 @@ export default class ViewModal {
     renderBackdrop() {
         const markup = `<div class='backdrop is-hidden'></div>`;
         this.MAIN_REF.insertAdjacentHTML('beforeend', markup);
-        // console.log('hi');$
     }
 
-    renderModal({ id, name, image, price, aprice, genre, platforms, amount, release, description, age_rating }) {
+    renderModal({ name, image, price, aprice, genre, platforms, release, description, age_rating }) {
         const refs = this.getRefs();
         const markup = `<div id="modal-card" class="modal-card card m-2" style="width: 18rem;">
-            <button type='button' class='modal-close'>X</button>
-            <h4 class="card-title fw-bold"">${name}</h4>
-            <img src="${image}" alt="${name}" class="modal-img" referrerpolicy="no-referrer"/>
-            <p class="modal-descr">${description}</p>
-            <p class="card-text">${release} - ${genre}</p>
-            <p class="card-text hidden-p">${platforms}</p>
-            <p class="card-text">Age rating: ${age_rating}+ years.</p>
-                        
-            <div class="modal-order">
-              <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
-              <button type="button" class="btn btn-primary">Buy now</button>
-            </div>
-          </div>`;
+                          <button type='button' class='modal-close'>X</button>
+                          <h4 class="card-title fw-bold"">${name}</h4>
+                          <img src="${image}" alt="${name}" class="modal-img" referrerpolicy="no-referrer"/>
+                          <div class="descr--wrapper">
+                            <p class="modal-descr">${description}</p>
+                            <p class="card-text">${release} - ${genre}</p>
+                            <p class="card-text hidden-p">${platforms}</p>
+                            <p class="card-text">Age rating: ${age_rating}+ years.</p>
+                          </div>                  
+                          <div class="modal-order">
+                            <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
+                            <button type="button" class="btn btn-primary">Buy now</button>
+                          </div>
+                      </div>`;
 
         refs.BACKDROP_REF.innerHTML = '';
         refs.BACKDROP_REF.insertAdjacentHTML('afterbegin', markup);

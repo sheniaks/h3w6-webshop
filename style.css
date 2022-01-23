@@ -59,6 +59,7 @@ main, .wrapper {
   position: absolute;
   top: 10%;
   left: 50%;
+  
   z-index: 101;
   padding: 20px;
   transform: translate(-50%);
@@ -69,6 +70,13 @@ main, .wrapper {
   border-radius: 4px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.descr--wrapper {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 20px;
+  margin-bottom: 10px;
 }
 
 .modal-close {
