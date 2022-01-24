@@ -1,4 +1,4 @@
-import Publisher from "../components/publisher.js";
+import Publisher from "../publisher.js";
 import ViewSort from "./view_sort.js";
 
 export default class ControllerSort {

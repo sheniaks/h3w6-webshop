@@ -1,8 +1,8 @@
-import ControllerCards from "./components/cards/controller_cards.js";
-import ControllerLikometr from "./components/likometr/controller_likometr.js";
-import ControllerModal from "./components/modal/controller_modal.js";
+import ControllerCards from "./app/cards/controller_cards.js";
+import ControllerLikometr from "./app/likometr/controller_likometr.js";
+import ControllerModal from "./app/modal/controller_modal.js";
 // import ControllerPagination from "./pagination/controller_pagination.js";
-import ControllerSort from "./sort/controller_sort.js";
+import ControllerSort from "./app/sort/controller_sort.js";
 
 const controllerCards = new ControllerCards();
 const controllerSort = new ControllerSort();
