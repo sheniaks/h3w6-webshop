@@ -1,14 +1,16 @@
 export default class ViewCards {
   BODY_MAIN = document.querySelector("main");
+  MAIN_WRAPPER = document.body.querySelector('.wrapper');
 
-  constructor(handleClickLike) {
+  constructor(handleClickLike, handleOpenModal) {
     this.handleClickLike = handleClickLike;
     this.BODY_MAIN.addEventListener("click", handleClickLike);
+    this.BODY_MAIN.addEventListener('click', handleOpenModal);
   }
 
   renderGames(games) {
-    this.BODY_MAIN.innerHTML = "";
-    this.BODY_MAIN.insertAdjacentHTML(
+    this.MAIN_WRAPPER.innerHTML = "";
+    this.MAIN_WRAPPER.insertAdjacentHTML(
       "beforeend",
       games.map(this.getGamesHTML).join("")
     );
