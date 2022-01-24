@@ -113,4 +113,11 @@ export default class ModelCards {
     }
     return searchResult;
   }
+
+  getObjForModalById(event) {
+    const card = event.target.closest(".card");
+    const id = card.dataset.id;
+    const objectForModal = this.data.find((obj) => obj.id === id);
+    return objectForModal;
+  }
 }

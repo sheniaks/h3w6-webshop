@@ -5,7 +5,7 @@ import ViewCards from "./view_cards.js";
 export default class ComtrollerCards {
   constructor() {
     this.model = new ModelCards();
-    this.view = new ViewCards(this.handleClickLike);
+    this.view = new ViewCards(this.handleClickLike, this.handleOpenModal);
     this.init();
     this.pub = new Publisher();
     this.pub.subscribe('ON_CLICK_SORT', this.handeSort);
@@ -38,6 +38,14 @@ export default class ComtrollerCards {
     this.view.renderGames(data);    
   }
   
+  handleOpenModal = (event) => {
+    event.preventDefault();
+    if (event.target === event.currentTarget) {
+        return;
+    }
+    const objectForModal = this.model.getObjForModalById(event);
+    this.pub.notify("ON_MODAL_CLICK", objectForModal);
+};
 
 
   // handleClickLike = ev => {
