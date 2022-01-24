@@ -15,10 +15,11 @@ export default class ViewSort {
     this.addListener(this.handleClickFormSelect);
   }
 
-  addListener(listener){
-      document.querySelector(this.FORM_SELECT).addEventListener("change", listener);
-    }
-
+  addListener(listener) {
+    document
+      .querySelector(this.FORM_SELECT)
+      .addEventListener("change", listener);
+  }
 
   // addListeners(listener) {
   //   [...document.querySelectorAll(this.BTN_SORT_SELECTOR)]
@@ -38,7 +39,7 @@ export default class ViewSort {
   // }
 
   renderSelectForm() {
-    const selectForm =`<select class="form-select" aria-label="Sort by select form">
+    const selectForm = `<select class="form-select" aria-label="Sort by select form">
     <option selected>Sort by:</option>
     <option value="sort_a_z">Name A-Z</option>
     <option value="sort_z_a">Name Z-A</option>
@@ -51,5 +52,4 @@ export default class ViewSort {
   </select>`;
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", selectForm);
   }
-
 }

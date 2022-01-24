@@ -8,4 +8,3 @@ const controllerSort = new ControllerSort();
 const controllerFilter = new ControllerFilter();
 const controllerSearch = new ControllerSearch();
 // const controllerLikometr = new ControllerLikometr();
-
