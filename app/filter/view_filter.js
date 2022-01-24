@@ -1,10 +1,11 @@
 export default class ViewFilter {
   BODY_HEADER = document.querySelector("header");
-  FORM_CHECK = '.form-check-input';
+  BODY_ASIDE = document.querySelector("aside");
+  FORM_CHECK = ".form-check-input";
   FORM_SELECT = ".form-select";
   constructor(handleClickFilterSelect, handleClickFilterCheckbox) {
     this.handleClickFilterSelect = handleClickFilterSelect;
-    this.handleClickFilterCheckbox= handleClickFilterCheckbox;
+    this.handleClickFilterCheckbox = handleClickFilterCheckbox;
   }
   init() {
     this.renderFilterForm();
@@ -18,17 +19,15 @@ export default class ViewFilter {
       .addEventListener("change", listener);
   }
 
-//    addListeners(listener2) {
-//     [...document.querySelectorAll(this.FORM_CHECK)]
-//         .forEach((checkbox) => checkbox.addEventListener("click", listener2));   
-//   }
+  //    addListeners(listener2) {
+  //     [...document.querySelectorAll(this.FORM_CHECK)]
+  //         .forEach((checkbox) => checkbox.addEventListener("click", listener2));
+  //   }
 
-addListeners(listener2) {
-    document.querySelector('.btn').addEventListener("click", listener2 ); 
-    console.log(listener2);  
-      }
-
-
+  addListeners(listener2) {
+    document.querySelector(".btn").addEventListener("click", listener2);
+    //console.log(listener2);
+  }
 
   renderFilterForm() {
     const filterFormPlatform = `
@@ -136,8 +135,7 @@ addListeners(listener2) {
         </div>
         <button class="btn btn-primary filter-genres" >FILTER BY GENRE</button>`;
 
-    
-    this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormGenre);
+    this.BODY_ASIDE.insertAdjacentHTML("afterbegin", filterFormGenre);
     this.BODY_HEADER.insertAdjacentHTML("afterbegin", filterFormPlatform);
   }
 }

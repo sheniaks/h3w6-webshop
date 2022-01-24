@@ -3,19 +3,19 @@ export default class ViewCards {
 
   constructor(handleClickLike) {
     this.handleClickLike = handleClickLike;
-    this.BODY_MAIN.addEventListener('click', handleClickLike);
+    this.BODY_MAIN.addEventListener("click", handleClickLike);
   }
 
-
   renderGames(games) {
-    this.BODY_MAIN.innerHTML = '';
+    this.BODY_MAIN.innerHTML = "";
     this.BODY_MAIN.insertAdjacentHTML(
       "beforeend",
       games.map(this.getGamesHTML).join("")
     );
   }
 
-  getGamesHTML({id,
+  getGamesHTML({
+    id,
     name,
     image,
     price,
@@ -25,7 +25,7 @@ export default class ViewCards {
     amount,
     release,
     description,
-    age_rating
+    age_rating,
   }) {
     return `<div class="card m-2 game-id border border-secondary rounded-3" style="width: 18rem" data-id="${id}">
                 <img src="${image}" referrerpolicy="no-referrer" class="card-img-top rounded-3" alt="Logo for ${name}" />
@@ -44,7 +44,6 @@ export default class ViewCards {
             </div>`;
   }
   // <button type="button" class="btn btn-success">Like</button>
-//TODO move to controller ?
-  getCardId = ev => ev.target.closest('.game-id').dataset.id;
-  
+  //TODO move to controller ?
+  getCardId = (ev) => ev.target.closest(".game-id").dataset.id;
 }

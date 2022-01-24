@@ -11,6 +11,7 @@ export default class ComtrollerCards {
     this.pub.subscribe('ON_CLICK_SORT', this.handeSort);
     this.pub.subscribe('ON_CLICK_FILTER_SELECT', this.handleFilterSelect);
     this.pub.subscribe('ON_CLICK_FILTER_CHECKBOX', this.handleFilterCheckbox);
+    this.pub.subscribe('ON_CHANGE_SEARCH', this.handeSearch);
   }
 
   init() {
@@ -22,14 +23,21 @@ export default class ComtrollerCards {
     this.view.renderGames(data);   
   }
 
+  handeSearch = searchVal => {
+    const data = this.model.getSearchData(searchVal);
+    this.view.renderGames(data);    
+  }
+
   handleFilterSelect = filterSelectType => {
     const data = this.model.getFilterSelectData(filterSelectType);
     this.view.renderGames(data);   
   }
+
   handeSort= sortType => {
     const data = this.model.getSortData(sortType);
     this.view.renderGames(data);    
   }
+  
 
 
   // handleClickLike = ev => {
