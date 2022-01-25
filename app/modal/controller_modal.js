@@ -12,6 +12,6 @@ export default class ControllerModal {
     handleClickOpenModal = obj => {
         this.view.renderModal(obj);
         this.view.showModal();
-        this.view.addListenersForCloseModal();
+        this.view.addListenersForCloseModalAndButtonClick();
     };
 }
