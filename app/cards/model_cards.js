@@ -99,16 +99,16 @@ export default class ModelCards {
       return this.filteredData;
     }
     let searchResult = this.filteredData.filter((card) =>
-      card.name.toLowerCase().includes(searchVal)
+      card.name.toLowerCase().includes(searchVal.toLowerCase())
     );
     if (searchResult.length === 0) {
       searchResult = this.filteredData.filter((card) =>
-        card.genre.toLowerCase().includes(searchVal)
+        card.genre.toLowerCase().includes(searchVal.toLowerCase())
       );
     }
     if (searchResult.length === 0) {
       searchResult = this.filteredData.filter((card) =>
-        card.platforms.toLowerCase().includes(searchVal)
+        card.platforms.toLowerCase().includes(searchVal.toLowerCase())
       );
     }
     return searchResult;
