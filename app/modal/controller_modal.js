@@ -6,7 +6,8 @@ export default class ControllerModal {
         this.view = new ViewModal();
         this.pub = new Publisher();
 
-        this.pub.subscribe('ON_MODAL_CLICK', this.handleClickOpenModal);
+        this.pub.subscribe('ON_INFO_CLICK', this.handleClickOpenModal);
+        // this.pub.subscribe('ON_BUY_CLICK', this.handleClickOpenCart);
     }
 
     handleClickOpenModal = obj => {
@@ -14,4 +15,10 @@ export default class ControllerModal {
         this.view.showModal();
         this.view.addListenersForCloseModalAndButtonClick();
     };
+
+    // handleClickOpenCart = obj => {
+    //     this.view.renderCart(obj);
+    //     this.view.showModal();
+    //     this.view.addListenersForCloseModalAndButtonClick();
+    // }
 }

@@ -1,6 +1,6 @@
 import ComtrollerCards from "./cards/controller_cards.js";
+import ControllerCart from "./cart/controller_cart.js";
 import ControllerFilter from "./filter/controller_filter.js";
-import ControllerLikometr from "./likometr/controller_likometr.js";
 import ControllerModal from "./modal/controller_modal.js";
 import ControllerSearch from "./search/controller_search.js";
 import ControllerSort from "./sort/controller_sort.js";
@@ -9,4 +9,4 @@ const controllerSort = new ControllerSort();
 const controllerFilter = new ControllerFilter();
 const controllerSearch = new ControllerSearch();
 const controllerModal = new ControllerModal();
-// const controllerLikometr = new ControllerLikometr();
+const controllerCart = new ControllerCart();

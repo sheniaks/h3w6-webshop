@@ -47,14 +47,14 @@ export default class ComtrollerCards {
     const button = event.target;
     const id = button.dataset.id;
     const objectForModal = this.model.getObjForModalById(id);
-    this.pub.notify("ON_MODAL_CLICK", objectForModal);
+    this.pub.notify("ON_INFO_CLICK", objectForModal);
   };
 
   handleProductBuyClick = (event) => {
     const button = event.target;
     const id = button.dataset.id;
     const objectForCart =  this.model.getObjForModalById(id);
-    this.pub.notify("ON_MODAL_CLICK", objectForCart);
+    this.pub.notify("ON_BUY_CLICK", objectForCart);
   };
 
 

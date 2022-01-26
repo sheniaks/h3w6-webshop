@@ -10,7 +10,7 @@ export default class ViewCards {
   }
 
   init() {
-    this.addEventListeners(this.handleProductInfoClick, ".btn-info");
+    this.addEventListeners(this.handleProductInfoClick, ".btn-info, .card-body");
     this.addEventListeners(this.handleProductBuyClick, ".btn-buy");
   }
 
@@ -39,7 +39,6 @@ export default class ViewCards {
     platforms,
     amount,
     release,
-    description,
     age_rating,
   }) {
     return `<div class="card product m-2 game-id border border-secondary rounded-3" style="width: 18rem" data-id="${id}">

@@ -48,8 +48,8 @@ export default class ViewFilter {
             <option value="Xbox One">Xbox One</option>
             <option value="Xbox Series X/S">Xbox Series X/S</option>
         </select>`;
-    const filterFormGenre = `
-        <div class="form-check">
+    const filterFormGenre = `<div class="container">
+        <div class="form-check form-check-inline">
             <input class="form-check-input" name="genre" type="checkbox" value="all" id="flexCheckChecked" >
             <label class="form-check-label" for="flexCheckChecked">
                 All genres
@@ -132,7 +132,7 @@ export default class ViewFilter {
             <label class="form-check-label" for="flexCheckDefault">
                 RPG
             </label>
-        </div>
+        </div> </div>
         <button class="btn btn-primary filter-genres" >FILTER BY GENRE</button>`;
 
     this.BODY_ASIDE.insertAdjacentHTML("afterbegin", filterFormGenre);

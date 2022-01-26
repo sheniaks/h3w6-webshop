@@ -7,6 +7,7 @@ export default class ViewModal {
   constructor() {
     this.renderBackdrop();
     this.pub = new Publisher();
+    // this.data = JSON.parse(localStorage.getItem('games')) || [];
   }
 
   renderBackdrop() {
@@ -28,8 +29,6 @@ export default class ViewModal {
     id,
   }) {
     const refs = this.getRefs();
-    const btnSelector = isInCart ? "button-delete" : "button-add";
-    const btnText = isInCart ? "Видалити" : "Додати в кошик";
     const markup = `<div id="modal-card" class="modal-card card m-2" style="width: 18rem;">
                           <button type='button' class='modal-close'>×</button>
                           <h4 class="card-title fw-bold"">${name}</h4>
@@ -42,15 +41,14 @@ export default class ViewModal {
                           </div>                  
                           <div class="modal-order">
                           <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
-                            <button type="button" class="btn btn-buy btn-primary card-button" data-id="${id}">Buy now</button>
                           </div>
                       </div>`;
-//<button class="card-button ${btnSelector} button-product-${id}"  type="button">${btnText}</button>
+                      //<button type="button" class="btn btn-buy btn-primary card-button" data-id="${id}">Buy now</button>
     refs.BACKDROP_REF.innerHTML = "";
     refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
   }
 
-  showModal() {
+  showModal(){
     document.querySelector(".backdrop").classList.remove("is-hidden");
     document.body.style.overflow = "hidden";
   }
@@ -62,7 +60,7 @@ export default class ViewModal {
     refs.BACKDROP_REF.addEventListener("click", this.handleClick);
   }
 
-  handleClick = event => {
+  handleClick = (event) => {
     const refs = this.getRefs();
     const { target, key } = event;
     if (
@@ -75,10 +73,15 @@ export default class ViewModal {
       refs.BACKDROP_REF.removeEventListener("click", this.handleClick);
       refs.BUTTON_CLOSE_REF.removeEventListener("click", this.handleClick);
       window.removeEventListener("keydown", this.handleClick);
-    } else if (target.nodeName === 'BUTTON') {
-      this.pub.notify('ON_MODAL_BUTTON_CLICK', event);
-    }
+    } 
+    // else if (target.nodeName === "BUTTON") {
+    //   console.log(event);
+    //   this.pub.notify("ON_BUY_CLICK", event);
+    // }
   };
+
+
+
 
   getRefs() {
     const refs = {
