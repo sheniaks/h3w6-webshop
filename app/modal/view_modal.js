@@ -31,7 +31,7 @@ export default class ViewModal {
     const btnSelector = isInCart ? "button-delete" : "button-add";
     const btnText = isInCart ? "Видалити" : "Додати в кошик";
     const markup = `<div id="modal-card" class="modal-card card m-2" style="width: 18rem;">
-                          <button type='button' class='modal-close'>X</button>
+                          <button type='button' class='modal-close'>×</button>
                           <h4 class="card-title fw-bold"">${name}</h4>
                           <img src="${image}" alt="${name}" class="modal-img" referrerpolicy="no-referrer"/>
                           <div class="descr--wrapper">
@@ -41,11 +41,11 @@ export default class ViewModal {
                             <p class="card-text">Age rating: ${age_rating}+ years.</p>
                           </div>                  
                           <div class="modal-order">
-                            <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
-                            <button class="card-button ${btnSelector} button-product-${id}"  type="button">${btnText}</button>
+                          <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
+                            <button type="button" class="btn btn-buy btn-primary card-button" data-id="${id}">Buy now</button>
                           </div>
                       </div>`;
-
+//<button class="card-button ${btnSelector} button-product-${id}"  type="button">${btnText}</button>
     refs.BACKDROP_REF.innerHTML = "";
     refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
   }
