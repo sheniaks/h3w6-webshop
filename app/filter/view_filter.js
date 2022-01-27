@@ -52,7 +52,7 @@ export default class ViewFilter {
         <div class="form-check form-check-inline">
             <input class="form-check-input" name="genre" type="checkbox" value="all" id="flexCheckChecked" >
             <label class="form-check-label" for="flexCheckChecked">
-                All genres
+                Any
             </label>
         </div>
         <div class="form-check form-check-inline">
@@ -70,7 +70,7 @@ export default class ViewFilter {
         <div class="form-check form-check-inline">
             <input class="form-check-input" name="genre" type="checkbox" value="battle royale" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
-                Battle Royale
+                BattleRoyale
             </label>
         </div>
         <div class="form-check form-check-inline">

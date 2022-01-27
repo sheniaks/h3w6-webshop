@@ -102,7 +102,7 @@ p.hidden-p {
 
 .descr--wrapper {
   max-height: 280px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   padding-right: 20px;
   margin-bottom: 10px;
 }
@@ -169,8 +169,16 @@ p.hidden-p {
 
 @media screen and (max-width: 440px) {
 
+  aside .container  {
+    padding: 0;
+  }
+
   aside .container .form-check {
     flex-basis: 30%;
+  }
+
+  .form-check-input {
+    margin-left: -1.2em;
   }
   
   #modal-card {
@@ -182,7 +190,7 @@ p.hidden-p {
     
   .descr--wrapper {
     max-height: 220px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     padding-right: 20px;
     margin-bottom: 10px;
   }
