@@ -41,9 +41,9 @@ export default class ViewModal {
                           </div>                  
                           <div class="modal-order">
                           <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
+                          <button type="button" class="btn btn-buy btn-primary card-button" data-id="${id}">Buy now</button>
                           </div>
-                      </div>`;
-                      //<button type="button" class="btn btn-buy btn-primary card-button" data-id="${id}">Buy now</button>
+                      </div>`;          
     refs.BACKDROP_REF.innerHTML = "";
     refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
   }

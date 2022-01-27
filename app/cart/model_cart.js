@@ -2,7 +2,7 @@ export default class ModelCart {
     constructor() {
      this.cartCounter = document.querySelector('.cart_counter');
   
-      this.data = JSON.parse(localStorage.getItem('sneakers')) || [];
+      this.data = JSON.parse(localStorage.getItem('games')) || [];
       this.span = localStorage.getItem('counter') || 0;
   
       this.addToSpanCart();
@@ -21,7 +21,7 @@ export default class ModelCart {
 
     updateLocalStorage() {
         this.getCount();
-        localStorage.setItem('sneakers', JSON.stringify(this.data));
+        localStorage.setItem('games', JSON.stringify(this.data));
         localStorage.setItem('counter', this.span);
       }
 
@@ -38,7 +38,7 @@ export default class ModelCart {
     }
   
     getFromLocalStorage() {
-      return JSON.parse(localStorage.getItem('sneakers')) || [];
+      return JSON.parse(localStorage.getItem('games')) || [];
     }
   
     setFullData(data) {
