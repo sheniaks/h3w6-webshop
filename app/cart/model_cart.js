@@ -12,7 +12,6 @@ export default class ModelCart {
     if (+index >= 0) {
       this.data[index].count++;
     } else this.data.push({ id, image, name, aprice, count: 1 });
-    console.log(this.data); //console
     return this.data;
   }
 
