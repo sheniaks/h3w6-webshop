@@ -100,10 +100,10 @@ export default class ControllerCart {
       } else {
         inputPhone.classList.remove("error");
       }
-
-      // const ID_CHAR = 134790138;
-      // const TG_BASE_URL =
-      //     "https://api.telegram.org/bot5185514605:AAGlTejFxHndFXm4_9X65IN1Svt0-_Jz4yQ/sendMessage?";
+                                       
+      const ID_CHAR = 176036857;
+      const TG_BASE_URL =
+          "https://api.telegram.org/bot5282310967:AAHn2R-8h5q8lUslewSU0IFhFdB8mrI3gIg/sendMessage?";
       let text = `New order%0AClient: ${nameVal}%0APhone: ${phoneVal}%0AEmail: ${emailVal}%0A`;
       let sumOrder = 0;
       const dateOrder = Date.now();
@@ -122,8 +122,8 @@ export default class ControllerCart {
       data.push({ dateOrder, countProducts, sumOrder });
       localStorage.setItem("historyOrders", JSON.stringify(data));
 
-      // const url = `${TG_BASE_URL}chat_id=${ID_CHAR}&text=${text}`;
-      // fetch(url);
+      const url = `${TG_BASE_URL}chat_id=${ID_CHAR}&text=${text}`;
+      fetch(url);
       this.pub.notify("ORDER_RECEIVED_MODAL");
       localStorage.removeItem("games");
     } else {
