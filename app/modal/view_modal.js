@@ -74,10 +74,10 @@ export default class ViewModal {
       refs.BUTTON_CLOSE_REF.removeEventListener("click", this.handleClick);
       window.removeEventListener("keydown", this.handleClick);
     } 
-    // else if (target.nodeName === "BUTTON") {
-    //   console.log(event);
-    //   this.pub.notify("ON_BUY_CLICK", event);
-    // }
+    else if (target.nodeName === "BUTTON") {
+      console.log(target);
+      this.pub.notify("ON_BUY_MODAL_CLICK", event);
+    }
   };
 
 

@@ -15,6 +15,7 @@ export default class ComtrollerCards {
     this.pub.subscribe("ON_CLICK_FILTER_SELECT", this.handleFilterSelect);
     this.pub.subscribe("ON_CLICK_FILTER_CHECKBOX", this.handleFilterCheckbox);
     this.pub.subscribe("ON_CHANGE_SEARCH", this.handeSearch);
+    this.pub.subscribe("ON_BUY_MODAL_CLICK", this.handeBuyModalClick);
   }
 
   init() {
@@ -51,6 +52,13 @@ export default class ComtrollerCards {
   };
 
   handleProductBuyClick = (event) => {
+    const button = event.target;
+    const id = button.dataset.id;
+    const product =  this.model.getObjForModalById(id);
+    this.pub.notify("ON_BUY_CLICK", product);
+  };
+
+  handeBuyModalClick = (event) => {
     const button = event.target;
     const id = button.dataset.id;
     const product =  this.model.getObjForModalById(id);
