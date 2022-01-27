@@ -75,13 +75,9 @@ export default class ViewModal {
       window.removeEventListener("keydown", this.handleClick);
     } 
     else if (target.nodeName === "BUTTON") {
-      console.log(target);
       this.pub.notify("ON_BUY_MODAL_CLICK", event);
     }
   };
-
-
-
 
   getRefs() {
     const refs = {

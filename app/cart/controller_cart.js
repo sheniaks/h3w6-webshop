@@ -13,6 +13,7 @@ export default class ControllerCart {
     this.pub.subscribe("ON_BUY_CLICK", this.handleAddToCart);
     this.pub.subscribe("ON_BUY_CLICK", this.handleClickOpenModalCart);
     this.pub.subscribe("ON_CART_CLICK", this.handleClickOpenModalCart);
+    this.pub.subscribe("ON_MODAL_BUY_CLICK", this.handleAddToCart);
     this.pub.subscribe("ON_ORDER_NOW_CLICK", this.sendInfOrder);
     this.pub.subscribe("ORDER_RECEIVED_MODAL", this.handleOrderRecievedModal);
   }
@@ -117,10 +118,10 @@ export default class ControllerCart {
       const countProducts = itemsOrder.length;
       text += `Total order amount ${sumOrder}`;
 
-      const data = JSON.parse(localStorage.getItem("historyOrders"));
+      const orders = JSON.parse(localStorage.getItem("historyOrders"));
 
-      data.push({ dateOrder, countProducts, sumOrder });
-      localStorage.setItem("historyOrders", JSON.stringify(data));
+      orders.push({ dateOrder, countProducts, sumOrder });
+      localStorage.setItem("historyOrders", JSON.stringify(orders));
 
       const url = `${TG_BASE_URL}chat_id=${ID_CHAR}&text=${text}`;
       fetch(url);
