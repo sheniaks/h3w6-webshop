@@ -49,7 +49,7 @@ export default class ViewCards {
                     <p class="card-text hidden-p">${platforms}</p>
                     <p class="card-text">Age rating : ${age_rating}+ years.</p>
                     <p class="card-text">In stock : ${amount}</p>
-                    <p class="card-text fw-bold"">New price: ${aprice} UAH (<s>${price} UAH</s>)</p>
+                    <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-info btn-secondary" data-id="${id}">Game description</button>

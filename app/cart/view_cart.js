@@ -17,7 +17,7 @@ export default class ViewCart {
                     </tr>`;
     }
     const markup = `
-        <div class="modal-card" >
+        <div id="modal-card" class="modal-card" >
         <button type='button' class='modal-close'>×</button>
         <h2>Your order:</h2>
         <table id="cartTable"  class="table">
