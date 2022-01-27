@@ -22,7 +22,6 @@ export default class ControllerCart {
 
   handleClickOpenModalCart = _ => {
     const data = this.model.getFromLocalStorage();
-    console.log(data);
     this.view.renderCartModal(data);
     this.view.showModal();
     this.view.addListenersForCloseModalAndButtonClick();
