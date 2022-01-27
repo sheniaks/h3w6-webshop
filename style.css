@@ -11,6 +11,18 @@ header{
 .sort--btns {
   margin: 6.5rem 0 0 1rem;
 }
+
+div.nav-btns {
+  font-size: 1.4rem;
+}
+
+.nav-btns a {
+  text-decoration: none;
+}
+
+.cart_counter {
+  margin-right: .5rem;
+}
 /* ---------------- */
 
 
@@ -145,4 +157,41 @@ p.new--p {
 }
 /* ---------------- */
 
+@media screen and (max-width: 440px) {
+  
+  #modal-card {
+    width: 330px!important;
+    padding: 15px;
+    margin: 0 !important;
+    left: 50%;
 
+  }
+    
+  .descr--wrapper {
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 20px;
+    margin-bottom: 10px;
+  }
+    
+  .modal-img {
+    margin: 0 auto 10px auto;
+    width: 220px;
+    height: 220px;
+  }
+  
+  .modal-descr {
+    text-align: justify;
+  }
+  
+  .new--price{
+    font-size: 1rem;
+    color: maroon;
+  }
+  
+  .modal-card p {
+    margin-bottom: .6rem;
+    font-size: .8rem;
+  }
+   
+}
