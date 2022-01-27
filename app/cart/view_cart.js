@@ -1,25 +1,33 @@
 export default class ViewCart {
-  constructor() {}
-  renderCartModal = obj => {
+  constructor(handleDeleteItemFromCart, handleUpdateCounterCart) {
+    this.handleDeleteItemFromCart = handleDeleteItemFromCart;
+    this.handleUpdateCounterCart = handleUpdateCounterCart;
+  }
+  renderCartModal = (obj) => {
     const refs = this.getRefs();
-    let html = '';
-
+    let cartItem = "";
+    let priceTotal = 0;
     for (let i = 0; i < obj.length; i++) {
-      let numer = i + 1;
-      html += ` <tr data-id="${obj[i].id}" class="cart-item">
-                        <th scope="row">${numer}</th>
+      let number = i + 1;
+      cartItem += ` <tr data-id="${obj[i].id}" class="cart-item">
+                        <th scope="row">${number}</th>
                         <td><img src="${obj[i].image}" width="40"></img></td>
                         <td>${obj[i].name}</td>
                         <td>${obj[i].aprice}</td>
-                        <td> <input class="input-count-items-in-cart" type="number" min="1" max="100" step="1" data-id="${obj[i].id}"  value="${obj[i].count}"></td>
-                        <td>${obj[i].aprice*obj[i].count}</td>
-                        <td> <button type="button" class="btn btn-danger btn-delete-from-cart" data-id="${obj[i].id}">×</button></td>
+                        <td> <input class="input-count-items-in-cart" type="number" min="1" max="100" step="1" data-id="${
+                          obj[i].id
+                        }"  value="${obj[i].count}"></td>
+                        <td>${obj[i].aprice * obj[i].count}</td>
+                        <td> <button type="button" class="btn btn-danger btn-delete-from-cart" data-id="${
+                          obj[i].id
+                        }">×</button></td>
                     </tr>`;
+                    priceTotal += obj[i].aprice * obj[i].count;              
     }
     const markup = `
         <div class="modal-card" >
         <button type='button' class='modal-close'>×</button>
-        <h2>Your order:</h2>
+        <h5>Your order:</h5>
         <table id="cartTable"  class="table">
             <thead>
                 <tr>
@@ -33,12 +41,11 @@ export default class ViewCart {
                 </tr>
             </thead>
             <tbody id="tBodyIdCart">
-            ${html}
+            ${cartItem}
             </tbody>
-            
-
         </table>
                 <form id="formMakeOrder" class='form-info' novalidate>
+                <h5 align="right">Total order value : <span class="total-price text-success">${priceTotal} UAH</span></h5>
                     <label for="nmailInput" class="form-label">Your Mail</label>
                     <input type="text" class="form-control info-input info-input-email" id="EmailInput"  name="cliEmail">
                     <label for="nameInput" class="form-label" >Your Name</label>
@@ -46,14 +53,18 @@ export default class ViewCart {
                     <label for="numnerPhoneInput" class="form-label">Your Phone Number</label>
                     <input type="text" class="form-control info-input info-input-phone" id="numnerPhoneInput" name="cliPhone" >
                     <div class="d-grid gap-2 pt-3">
-                      <button type="submit" class="btn btn-success me-md-2 " id="btnMakeOrder">Make order</button>
+                      <button type="submit" class="btn btn-success me-md-2 " id="btnMakeOrder">Order now</button>
                     </div>
                 </form>
         </div>`;
-    refs.BACKDROP_REF.innerHTML = '';
-    refs.BACKDROP_REF.insertAdjacentHTML('afterbegin', markup);
+    refs.BACKDROP_REF.innerHTML = "";
+    refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
+    let counterField = document.querySelectorAll('.input-count-items-in-cart');
+    counterField.forEach(el => el.addEventListener('change', () => this.handleUpdateCounterCart(el)))
+    let btnDeleteFromCart = document.querySelectorAll('.btn-delete-from-cart');
+    btnDeleteFromCart.forEach(el => el.addEventListener('click', () => this.handleDeleteItemFromCart(el.dataset.id)))
   };
- 
+
   showModal() {
     document.querySelector(".backdrop").classList.remove("is-hidden");
     document.body.style.overflow = "hidden";
@@ -79,8 +90,6 @@ export default class ViewCart {
       refs.BACKDROP_REF.removeEventListener("click", this.handleClick);
       refs.BUTTON_CLOSE_REF.removeEventListener("click", this.handleClick);
       window.removeEventListener("keydown", this.handleClick);
-    } else if (target.nodeName === "BUTTON") {
-      this.pub.notify("ON_MODAL_BUTTON_CLICK", event);
     }
   };
 
@@ -93,11 +102,4 @@ export default class ViewCart {
     return refs;
   }
 
-  addLisSentInfOrder = () => {
-    // console.log('находит кнопку при рендере');
-    const btn = document.querySelector('#btnMakeOrder');
-    btn.addEventListener('click', ev => {
-      this.pub.notify('ADD_LIS_BTN_MAKE_ORDER', ev);
-    });
-  };
 }
