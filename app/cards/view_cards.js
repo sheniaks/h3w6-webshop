@@ -2,14 +2,16 @@ export default class ViewCards {
   BODY_MAIN = document.querySelector("main");
   MAIN_WRAPPER = document.body.querySelector(".wrapper");
 
-  constructor(handleProductInfoClick, handleProductBuyClick) {
+  constructor(handleProductInfoClick, handleProductBuyClick, handleCartClick) {
     this.handleProductInfoClick = handleProductInfoClick;
     this.handleProductBuyClick = handleProductBuyClick;
+    this.handleCartClick = handleCartClick;
     this.init();
     // this.BODY_MAIN.addEventListener('click', handleOpenModal);
   }
 
   init() {
+    this.addEventListeners(this.handleCartClick, ".cart_icon");
     this.addEventListeners(this.handleProductInfoClick, ".btn-info, .card-body");
     this.addEventListeners(this.handleProductBuyClick, ".btn-buy");
   }

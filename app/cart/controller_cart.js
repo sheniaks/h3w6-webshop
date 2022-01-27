@@ -12,6 +12,7 @@ export default class ControllerCart {
     );
     this.pub.subscribe("ON_BUY_CLICK", this.handleAddToCart);
     this.pub.subscribe("ON_BUY_CLICK", this.handleClickOpenModalCart);
+    this.pub.subscribe("ON_CART_CLICK", this.handleClickOpenModalCart);
   }
 
   handleAddToCart = (product) => {

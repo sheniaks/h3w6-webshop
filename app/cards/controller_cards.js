@@ -7,7 +7,8 @@ export default class ComtrollerCards {
     this.model = new ModelCards();
     this.view = new ViewCards(
       this.handleProductInfoClick,
-      this.handleProductBuyClick
+      this.handleProductBuyClick,
+      this.handleCartClick,
     );
     this.init();
     this.pub = new Publisher();
@@ -50,6 +51,15 @@ export default class ComtrollerCards {
     const objectForModal = this.model.getObjForModalById(id);
     this.pub.notify("ON_INFO_CLICK", objectForModal);
   };
+
+  handleCartClick = (event) => {
+    console.log(event);
+    const button = event.target;
+    const id = button.dataset.id;
+    const objectForModal = this.model.getObjForModalById(id);
+    this.pub.notify("ON_CART_CLICK", objectForModal);
+  };
+
 
   handleProductBuyClick = (event) => {
     const button = event.target;
