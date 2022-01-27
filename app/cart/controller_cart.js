@@ -10,7 +10,7 @@ export default class ControllerCart{
 
         this.pub.subscribe('ON_BUY_CLICK', this.handleAddToCart);
         
-        // this.pub.subscribe('ON_BUY_CLICK', this.handleClickOpenCart);
+         this.pub.subscribe('ON_BUY_CLICK', this.handleClickOpenModalCart);
     }
 
     handleAddToCart = product => {
@@ -19,17 +19,34 @@ export default class ControllerCart{
         this.model.addToSpanCart();
       }
 
-
-      handleOpenCart = data => {
+      handleClickOpenModalCart = _ => {
+        const data = this.model.getFromLocalStorage();
         console.log(data);
-        this.view.renderCartt(data);
-      }
+        this.view.renderCartModal(data);
+        this.view.showModal();
+        this.view.addLisSentInfOrder();
+        // this.view.addListenersForDeleteButton();
+        this.view.addListenersForCloseModalAndButtonClick();
+      };
+      habdelAddListenersForDeleteButton = () => {
+        // this.view.addListenersForDeleteButton();
+      };
 
 
-    // handleClickOpenCart = product => {
-    //     this.view.renderCart(product);
+
+
+
+
+    // handleClickOpenCart = data => {
+    //     this.view.renderCart(data);
     //     this.view.showModal();
     //     this.view.addListenersForCloseModalAndButtonClick();
     // }
+
+    // handleOpenCart = data => {
+      //   console.log(data);
+      //   this.view.renderCartt(data);
+      // }
+
     
 }
