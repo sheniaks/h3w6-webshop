@@ -1,7 +1,10 @@
+import Publisher from "../publisher.js";
+
 export default class ViewCart {
   constructor(handleDeleteItemFromCart, handleUpdateCounterCart) {
     this.handleDeleteItemFromCart = handleDeleteItemFromCart;
     this.handleUpdateCounterCart = handleUpdateCounterCart;
+    this.pub = new Publisher();
   }
   renderCartModal = (obj) => {
     const refs = this.getRefs();
@@ -22,7 +25,7 @@ export default class ViewCart {
                           obj[i].id
                         }">×</button></td>
                     </tr>`;
-                    priceTotal += obj[i].aprice * obj[i].count;              
+      priceTotal += obj[i].aprice * obj[i].count;
     }
     const markup = `
         <div id="modal-card" class="modal-card" >
@@ -53,17 +56,31 @@ export default class ViewCart {
                     <label for="numnerPhoneInput" class="form-label">Your Phone Number</label>
                     <input type="text" class="form-control info-input info-input-phone" id="numnerPhoneInput" name="cliPhone" >
                     <div class="d-grid gap-2 pt-3">
-                      <button type="submit" class="btn btn-success me-md-2 " id="btnMakeOrder">Order now</button>
-                    </div>
+                      <button type="submit" class="btn btn-success me-md-2 " id="orderNow">Order now</button>
+                      </div>
                 </form>
         </div>`;
+        // 
     refs.BACKDROP_REF.innerHTML = "";
     refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
-    let counterField = document.querySelectorAll('.input-count-items-in-cart');
-    counterField.forEach(el => el.addEventListener('change', () => this.handleUpdateCounterCart(el)))
-    let btnDeleteFromCart = document.querySelectorAll('.btn-delete-from-cart');
-    btnDeleteFromCart.forEach(el => el.addEventListener('click', () => this.handleDeleteItemFromCart(el.dataset.id)))
+    let counterField = document.querySelectorAll(".input-count-items-in-cart");
+    counterField.forEach((el) =>
+      el.addEventListener("change", () => this.handleUpdateCounterCart(el))
+    );
+    let btnDeleteFromCart = document.querySelectorAll(".btn-delete-from-cart");
+    btnDeleteFromCart.forEach((el) =>
+      el.addEventListener("click", () =>
+        this.handleDeleteItemFromCart(el.dataset.id)
+      )
+    );
   };
+
+  renderOrderRecievedModal = () => {
+    const bodyCart = document.querySelector(".bodyCard");
+        const html =
+            "<h3>Thank you for your order! Have a nice day! We'll contact you soon!</h3>";
+        bodyCart.innerHTML = html;
+  }
 
   showModal() {
     document.querySelector(".backdrop").classList.remove("is-hidden");
@@ -76,6 +93,13 @@ export default class ViewCart {
     window.addEventListener("keydown", this.handleClick);
     refs.BACKDROP_REF.addEventListener("click", this.handleClick);
   }
+
+  addListenerBtnOrderNow = () => {
+    const btnOrderNow = document.querySelector("#orderNow");
+    btnOrderNow.addEventListener("click", (ev) => {
+      this.pub.notify("ON_ORDER_NOW_CLICK", ev);
+    });
+  };
 
   handleClick = (event) => {
     const refs = this.getRefs();
@@ -102,4 +126,18 @@ export default class ViewCart {
     return refs;
   }
 
+  static validateEmail(email) {
+    let re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  static validateCountry(country) {
+    let re = new RegExp(".co$");
+    return re.test(String(country).toLowerCase());
+  }
+  static validatePhone(phone) {
+    let re = /^[0-9\s]*$/;
+    return re.test(String(phone));
+  }
 }

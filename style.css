@@ -74,6 +74,14 @@ p.hidden-p {
   transition: opacity 250ms linear, visibility 250ms linear;
 }
 
+.form-control.error {
+  border: 2px solid red;
+}
+
+.info-input {
+  margin-bottom: 10px;
+}
+
 .is-hidden {
   visibility: hidden;
   opacity: 0;

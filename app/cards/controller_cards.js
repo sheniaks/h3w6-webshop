@@ -53,7 +53,6 @@ export default class ComtrollerCards {
   };
 
   handleCartClick = (event) => {
-    console.log(event);
     const button = event.target;
     const id = button.dataset.id;
     const objectForModal = this.model.getObjForModalById(id);

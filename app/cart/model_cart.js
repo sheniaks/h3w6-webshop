@@ -1,5 +1,6 @@
 export default class ModelCart {
   constructor() {
+    localStorage.setItem("historyOrders", JSON.stringify([]));
     this.cartCounter = document.querySelector(".cart_counter");
     this.data = JSON.parse(localStorage.getItem("games")) || [];
     this.span = localStorage.getItem("counter") || 0;
