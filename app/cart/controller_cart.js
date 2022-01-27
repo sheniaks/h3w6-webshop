@@ -8,13 +8,28 @@ export default class ControllerCart{
         this.pub = new Publisher();
         this.view = new ViewCart();
 
-        this.pub.subscribe('ON_BUY_CLICK', this.handleClickOpenCart);
+        this.pub.subscribe('ON_BUY_CLICK', this.handleAddToCart);
+        
+        // this.pub.subscribe('ON_BUY_CLICK', this.handleClickOpenCart);
     }
 
-    handleClickOpenCart = obj => {
-        this.view.renderCart(obj);
-        this.view.showModal();
-        this.view.addListenersForCloseModalAndButtonClick();
-    }
+    handleAddToCart = product => {
+        this.model.addToArrayForCart(product); // make array for cart, wich will be store in localStorage
+        this.model.updateLocalStorage(); // update array in localStorage for cart
+        this.model.addToSpanCart();
+      }
+
+
+      handleOpenCart = data => {
+        console.log(data);
+        this.view.renderCartt(data);
+      }
+
+
+    // handleClickOpenCart = product => {
+    //     this.view.renderCart(product);
+    //     this.view.showModal();
+    //     this.view.addListenersForCloseModalAndButtonClick();
+    // }
     
 }
