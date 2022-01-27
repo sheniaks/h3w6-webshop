@@ -25,7 +25,7 @@ export default class ViewCart {
                     priceTotal += obj[i].aprice * obj[i].count;              
     }
     const markup = `
-        <div class="modal-card" >
+        <div id="modal-card" class="modal-card" >
         <button type='button' class='modal-close'>×</button>
         <h5>Your order:</h5>
         <table id="cartTable"  class="table">
