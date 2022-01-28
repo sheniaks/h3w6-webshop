@@ -98,24 +98,23 @@ export default class ControllerCart {
         return false;
       } else {
         inputPhone.classList.remove("error");
-      }                             
+      } 
+      const orders = JSON.parse(localStorage.getItem("historyOrders"));                            
       const ID_CHAR = 176036857;
       const TG_BASE_URL =
           "https://api.telegram.org/bot5282310967:AAHn2R-8h5q8lUslewSU0IFhFdB8mrI3gIg/sendMessage?";
-      let text = `New order%0AClient: ${nameVal}%0APhone: ${phoneVal}%0AEmail: ${emailVal}%0A`;
+      let text = `New order №${orders.length}%0A========================================%0AClient: ${nameVal}%0APhone: ${phoneVal}%0AEmail: ${emailVal}%0A========================================%0A`;
       let sumOrder = 0;
       const dateOrder = Date.now();
 
       itemsOrder.forEach((value) => {
-        text += `Product id: ${value["id"]} Amount: x${value["count"]}%0A`;
+        text += `[Id:${value["id"]}] [Product: ${value["name"]}] [Amount: x${value["count"]}]%0A`;
         sumOrder += parseFloat(value["aprice"]) * value["count"];
       });
 
       sumOrder = sumOrder.toFixed(2);
       const countProducts = itemsOrder.length;
-      text += `Total order amount ${sumOrder}`;
-
-      const orders = JSON.parse(localStorage.getItem("historyOrders"));
+      text += `========================================%0ATotal order amount ${sumOrder}`;
 
       orders.push({ dateOrder, countProducts, sumOrder });
       localStorage.setItem("historyOrders", JSON.stringify(orders));
