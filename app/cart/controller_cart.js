@@ -123,10 +123,14 @@ export default class ControllerCart {
       const url = `${TG_BASE_URL}chat_id=${ID_CHAR}&text=${text}`;
       fetch(url);
       this.pub.notify("ORDER_RECEIVED_MODAL");
-      localStorage.removeItem("games");
-      localStorage.setItem("counter", 0);
+      // localStorage.removeItem("games");
+      // localStorage.setItem("counter", 0);
+      this.model.data = [];
+      this.model.span = 0;
+      this.model.updateLocalStorage();
       this.model.nullSpanCart();
       this.view.renderCartModal();
+      
     } else {
       ev.target.classList.add("disabled");
     }

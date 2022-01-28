@@ -12,7 +12,7 @@ export default class ViewCards {
 
   init() {
     this.addEventListeners(this.handleCartClick, ".cart_icon");
-    this.addEventListeners(this.handleProductInfoClick, ".btn-info, .card-body");
+    this.addEventListeners(this.handleProductInfoClick, ".btn-info");
     this.addEventListeners(this.handleProductBuyClick, ".btn-buy");
   }
 

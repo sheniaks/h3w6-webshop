@@ -70,7 +70,6 @@ export default class ComtrollerCards {
   handeBuyModalClick = (event) => {
     const button = event.target;
     const id = button.dataset.id;
-    console.log(id);
     const product =  this.model.getObjForModalById(id);
     this.pub.notify("ON_MODAL_BUY_CLICK", product);
   };
