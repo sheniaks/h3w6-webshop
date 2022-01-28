@@ -51,7 +51,7 @@ export default class ControllerCart {
 
   handleOrderRecievedModal = () => {
     this.view.renderOrderRecievedModal();
-};
+  };
 
   sendInfOrder = (ev) => {
     const itemsOrder = this.model.getFromLocalStorage();
@@ -98,11 +98,11 @@ export default class ControllerCart {
         return false;
       } else {
         inputPhone.classList.remove("error");
-      } 
-      const orders = JSON.parse(localStorage.getItem("historyOrders"));                            
+      }
+      const orders = JSON.parse(localStorage.getItem("historyOrders"));
       const ID_CHAR = 176036857;
       const TG_BASE_URL =
-          "https://api.telegram.org/bot5282310967:AAHn2R-8h5q8lUslewSU0IFhFdB8mrI3gIg/sendMessage?";
+        "https://api.telegram.org/bot5282310967:AAHn2R-8h5q8lUslewSU0IFhFdB8mrI3gIg/sendMessage?";
       let text = `New order №${orders.length}%0A========================================%0AClient: ${nameVal}%0APhone: ${phoneVal}%0AEmail: ${emailVal}%0A========================================%0A`;
       let sumOrder = 0;
       const dateOrder = Date.now();
@@ -114,7 +114,7 @@ export default class ControllerCart {
 
       sumOrder = sumOrder.toFixed(2);
       const countProducts = itemsOrder.length;
-      text += `========================================%0ATotal order amount ${sumOrder}`;
+      text += `========================================%0ATotal order amount ${sumOrder} UAH`;
 
       orders.push({ dateOrder, countProducts, sumOrder });
       localStorage.setItem("historyOrders", JSON.stringify(orders));
@@ -129,7 +129,6 @@ export default class ControllerCart {
       this.model.updateLocalStorage();
       this.model.nullSpanCart();
       this.view.renderCartModal();
-      
     } else {
       ev.target.classList.add("disabled");
     }

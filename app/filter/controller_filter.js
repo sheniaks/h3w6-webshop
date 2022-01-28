@@ -13,7 +13,6 @@ export default class ControllerFilter {
 
   handleClickFilterSelect = (ev) => {
     const filterSelectType = ev.target.value;
-    console.log(ev.target.value);
     this.pub.notify("ON_CLICK_FILTER_SELECT", filterSelectType);
   };
 
@@ -23,9 +22,7 @@ export default class ControllerFilter {
     checkboxes.forEach((checkbox) => {
       values.push(checkbox.value);
     });
-    // console.log(values);
     const filterCheckboxType = values.join(" ");
-    console.log(filterCheckboxType);
     this.pub.notify("ON_CLICK_FILTER_CHECKBOX", filterCheckboxType);
   };
 }

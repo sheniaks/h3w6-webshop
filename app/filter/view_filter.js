@@ -19,14 +19,8 @@ export default class ViewFilter {
       .addEventListener("change", listener);
   }
 
-  //    addListeners(listener2) {
-  //     [...document.querySelectorAll(this.FORM_CHECK)]
-  //         .forEach((checkbox) => checkbox.addEventListener("click", listener2));
-  //   }
-
   addListeners(listener2) {
     document.querySelector(".btn").addEventListener("click", listener2);
-    //console.log(listener2);
   }
 
   renderFilterForm() {

@@ -43,12 +43,12 @@ export default class ViewModal {
                           <p class="card-text fw-bold new--p">New price: <span class="new--price">${aprice} UAH</span> (<s>${price} UAH</s>)</p>
                           <button type="button" class="btn btn-buy btn-primary card-button" data-id="${id}">Buy now</button>
                           </div>
-                      </div>`;          
+                      </div>`;
     refs.BACKDROP_REF.innerHTML = "";
     refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
   }
 
-  showModal(){
+  showModal() {
     document.querySelector(".backdrop").classList.remove("is-hidden");
     document.body.style.overflow = "hidden";
   }
@@ -73,8 +73,7 @@ export default class ViewModal {
       refs.BACKDROP_REF.removeEventListener("click", this.handleClick);
       refs.BUTTON_CLOSE_REF.removeEventListener("click", this.handleClick);
       window.removeEventListener("keydown", this.handleClick);
-    } 
-    else if (target.nodeName === "BUTTON") {
+    } else if (target.nodeName === "BUTTON") {
       this.pub.notify("ON_BUY_MODAL_CLICK", event);
     }
   };

@@ -10,10 +10,10 @@ export default class ViewCart {
     const refs = this.getRefs();
     let cartItem = "";
     let priceTotal = 0;
-    if (obj){
-    for (let i = 0; i < obj.length; i++) {
-      let number = i + 1;
-      cartItem += ` <tr data-id="${obj[i].id}" class="cart-item">
+    if (obj) {
+      for (let i = 0; i < obj.length; i++) {
+        let number = i + 1;
+        cartItem += ` <tr data-id="${obj[i].id}" class="cart-item">
                         <th scope="row">${number}</th>
                         <td><img src="${obj[i].image}" width="40"></img></td>
                         <td>${obj[i].name}</td>
@@ -26,8 +26,9 @@ export default class ViewCart {
                           obj[i].id
                         }">×</button></td>
                     </tr>`;
-      priceTotal += obj[i].aprice * obj[i].count;
-    }}
+        priceTotal += obj[i].aprice * obj[i].count;
+      }
+    }
     const markup = `
         <div id="modal-card" class="modal-card" >
         <button type='button' class='modal-close'>×</button>
@@ -63,7 +64,7 @@ export default class ViewCart {
                 </form>
         </div>
         </div>`;
-        // 
+    //
     refs.BACKDROP_REF.innerHTML = "";
     refs.BACKDROP_REF.insertAdjacentHTML("afterbegin", markup);
     let counterField = document.querySelectorAll(".input-count-items-in-cart");
@@ -80,10 +81,10 @@ export default class ViewCart {
 
   renderOrderRecievedModal = () => {
     const bodyCart = document.querySelector(".bodyCard");
-        const html =
-            "<h3>Thank you for your order! Have a nice day! We'll contact you soon!</h3>";
-        bodyCart.innerHTML = html;
-  }
+    const html =
+      "<h3>Thank you for your order! Have a nice day! We'll contact you soon!</h3>";
+    bodyCart.innerHTML = html;
+  };
 
   showModal() {
     document.querySelector(".backdrop").classList.remove("is-hidden");

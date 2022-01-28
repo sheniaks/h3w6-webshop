@@ -8,7 +8,7 @@ export default class ComtrollerCards {
     this.view = new ViewCards(
       this.handleProductInfoClick,
       this.handleProductBuyClick,
-      this.handleCartClick,
+      this.handleCartClick
     );
     this.init();
     this.pub = new Publisher();
@@ -20,9 +20,7 @@ export default class ComtrollerCards {
   }
 
   init() {
-    this.model
-      .getData()
-      .then((d) => this.view.renderGames(d));
+    this.model.getData().then((d) => this.view.renderGames(d));
   }
 
   handleFilterCheckbox = (filterCheckboxType) => {
@@ -59,27 +57,21 @@ export default class ComtrollerCards {
     this.pub.notify("ON_CART_CLICK", objectForModal);
   };
 
-
   handleProductBuyClick = (event) => {
     const button = event.target;
     const id = button.dataset.id;
-    const product =  this.model.getObjForModalById(id);
+    const product = this.model.getObjForModalById(id);
     this.pub.notify("ON_BUY_CLICK", product);
   };
 
   handeBuyModalClick = (event) => {
     const button = event.target;
     const id = button.dataset.id;
-    const product =  this.model.getObjForModalById(id);
+    const product = this.model.getObjForModalById(id);
     this.pub.notify("ON_MODAL_BUY_CLICK", product);
   };
 
-
-
-
-
-  
-// handleOpenModal = (event) => {
+  // handleOpenModal = (event) => {
   //   event.preventDefault();
   //   if (event.target === event.currentTarget) {
   //     return;

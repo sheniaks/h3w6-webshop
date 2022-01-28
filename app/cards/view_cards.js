@@ -16,7 +16,7 @@ export default class ViewCards {
     this.addEventListeners(this.handleProductBuyClick, ".btn-buy");
   }
 
-  addEventListeners(listener,selector) {
+  addEventListeners(listener, selector) {
     document
       .querySelectorAll(selector)
       .forEach((button) => button.addEventListener("click", listener));
@@ -61,5 +61,5 @@ export default class ViewCards {
   }
   // <button type="button" class="btn btn-success">Like</button>
   //TODO move to controller ?
-//   getCardId = (ev) => ev.target.closest(".game-id").dataset.id;
+  //   getCardId = (ev) => ev.target.closest(".game-id").dataset.id;
 }

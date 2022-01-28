@@ -18,7 +18,6 @@ export default class ModelCards {
       }, {})
     );
     this.data = data;
-    //console.log(data);
     return data;
   };
 
@@ -32,7 +31,6 @@ export default class ModelCards {
       sort_age_dn: -1,
     };
     const sortMulti = sortVoc[sortType];
-    //console.log(this.filteredData);
     if (this.filteredData === undefined || this.filteredData.length === 0) {
       this.filteredData = this.data;
     }
@@ -67,9 +65,7 @@ export default class ModelCards {
       this.filteredData = this.filteredData.filter((card) =>
         card.platforms.includes(filterSelectType)
       );
-      // console.log(this.filteredData);
-      // console.log(this.filteredData.length);
-      // console.log(filterSelectType);
+
       return this.filteredData;
     }
   }
@@ -85,7 +81,6 @@ export default class ModelCards {
       this.filteredData = this.filteredData.filter((card) =>
         card.genre.includes(filterCheckboxType)
       );
-      // console.log(this.filteredData);
       return this.filteredData;
     }
   }
@@ -119,6 +114,4 @@ export default class ModelCards {
     // const id = card.dataset.id;
     return this.data.find((obj) => obj.id == id);
   }
-
-
 }

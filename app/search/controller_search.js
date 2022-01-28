@@ -8,9 +8,8 @@ export default class ControllerSearch {
     this.view.init();
   }
 
-  handleChangeSearch = ev => {
+  handleChangeSearch = (ev) => {
     const searchVal = ev.target.value;
-    //console.log(searchVal);
     this.pub.notify("ON_CHANGE_SEARCH", searchVal);
   };
 }

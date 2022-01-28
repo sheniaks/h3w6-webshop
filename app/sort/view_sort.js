@@ -4,13 +4,10 @@ export default class ViewSort {
   FORM_SELECT = ".form-select";
 
   constructor(handleClickFormSelect) {
-    // this.handleClickBtnSort = handleClickBtnSort;
     this.handleClickFormSelect = handleClickFormSelect;
   }
 
   init() {
-    // this.renderButtons();
-    // this.addListeners(this.handleClickBtnSort);
     this.renderSelectForm();
     this.addListener(this.handleClickFormSelect);
   }
@@ -20,23 +17,6 @@ export default class ViewSort {
       .querySelector(this.FORM_SELECT)
       .addEventListener("change", listener);
   }
-
-  // addListeners(listener) {
-  //   [...document.querySelectorAll(this.BTN_SORT_SELECTOR)]
-  //       .forEach((btn) =>btn.addEventListener("click", listener));
-  // }
-
-  // renderButtons() {
-  //   const buttonsStr = `
-  //       <button type="button" class="btn btn-info btn--sort" data-btn="sort_price_up">Sort price up</button>
-  //       <button type="button" class="btn btn-info btn--sort" data-btn="sort_price_dn">Sort price down</button>
-  //       <button type="button" class="btn btn-info btn--sort" data-btn="sort_release_up">Sort release old</button>
-  //       <button type="button" class="btn btn-info btn--sort" data-btn="sort_release_dn">Sort release new</button>
-  //       <button type="button" class="btn btn-info btn--sort" data-btn="sort_age_up">Sort age rating lowest</button>
-  //       <button type="button" class="btn btn-info btn--sort" data-btn="sort_age_dn">Sort age rating highest</button>
-  //       `;
-  //   this.BODY_HEADER.insertAdjacentHTML("afterbegin", buttonsStr);
-  // }
 
   renderSelectForm() {
     const selectForm = `<select class="form-select" aria-label="Sort by select form">
