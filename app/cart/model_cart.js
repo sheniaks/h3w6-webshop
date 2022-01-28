@@ -21,10 +21,14 @@ export default class ModelCart {
     localStorage.setItem("games", JSON.stringify(this.data));
     localStorage.setItem("counter", this.span);
   }
-
+  
   addToSpanCart = () => {
     this.cartCounter.innerHTML = localStorage.getItem("counter") || 0;
   };
+
+  nullSpanCart() {
+    return this.cartCounter.innerHTML = "";
+  } 
 
   getCount = () => {
     this.span = this.data.reduce((sum, el) => {

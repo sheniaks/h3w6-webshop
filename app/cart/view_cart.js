@@ -10,6 +10,7 @@ export default class ViewCart {
     const refs = this.getRefs();
     let cartItem = "";
     let priceTotal = 0;
+    if (obj){
     for (let i = 0; i < obj.length; i++) {
       let number = i + 1;
       cartItem += ` <tr data-id="${obj[i].id}" class="cart-item">
@@ -26,10 +27,11 @@ export default class ViewCart {
                         }">×</button></td>
                     </tr>`;
       priceTotal += obj[i].aprice * obj[i].count;
-    }
+    }}
     const markup = `
         <div id="modal-card" class="modal-card" >
         <button type='button' class='modal-close'>×</button>
+        <div class='bodyCard'>
         <h5>Your order:</h5>
         <table id="cartTable"  class="table">
             <thead>
@@ -56,9 +58,10 @@ export default class ViewCart {
                     <label for="numnerPhoneInput" class="form-label">Your Phone Number</label>
                     <input type="text" class="form-control info-input info-input-phone" id="numnerPhoneInput" name="cliPhone" >
                     <div class="d-grid gap-2 pt-3">
-                      <button type="submit" class="btn btn-success me-md-2 " id="orderNow">Order now</button>
+                      <button type="button" class="btn btn-success me-md-2 " id="orderNow">Order now</button>
                       </div>
                 </form>
+        </div>
         </div>`;
         // 
     refs.BACKDROP_REF.innerHTML = "";

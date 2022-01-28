@@ -54,9 +54,7 @@ export default class ControllerCart {
 };
 
   sendInfOrder = (ev) => {
-    const itemsOrder = JSON.parse(localStorage.getItem("games"));
-    // const itemsOrder = this.model.getFromLocalStorage();
-    console.log(itemsOrder);
+    const itemsOrder = this.model.getFromLocalStorage();
     if (itemsOrder != 0) {
       const formInputs = document.querySelectorAll(".info-input");
       const inputEmail = document.querySelector(".info-input-email");
@@ -100,8 +98,7 @@ export default class ControllerCart {
         return false;
       } else {
         inputPhone.classList.remove("error");
-      }
-                                       
+      }                             
       const ID_CHAR = 176036857;
       const TG_BASE_URL =
           "https://api.telegram.org/bot5282310967:AAHn2R-8h5q8lUslewSU0IFhFdB8mrI3gIg/sendMessage?";
@@ -127,6 +124,9 @@ export default class ControllerCart {
       fetch(url);
       this.pub.notify("ORDER_RECEIVED_MODAL");
       localStorage.removeItem("games");
+      localStorage.setItem("counter", 0);
+      this.model.nullSpanCart();
+      this.view.renderCartModal();
     } else {
       ev.target.classList.add("disabled");
     }
